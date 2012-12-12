@@ -94,7 +94,7 @@ class LibraryManager(object):
         if expression:
             query = query.filter(or_(
                 Book.name.like("%" + expression + "%"),
-                Author.name.like("%" + expression + "%")))
+                Book.authors.any(Author.name.like("%" + expression + "%"))))
             
         return map(lambda book: BookConverter.from_mo(book).to_dto(), query.all())
     
