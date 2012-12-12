@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Library {% endblock %}
+
+{% block content %}
+    <div id="dashboard">
+        
+        <div class="control first">
+        	<div class="button">
+            <a href="search">
+                <img class="ibutton" alt="Search" src="{{url_for('static', filename='images/search_150x200.png')}}" />
+            </a>
+            </div>
+            <div class="annotation">
+            	Search books
+            </div>
+        </div>
+        
+        <div class="control">
+        	<div class="button">
+	            <a href="books">
+	                <img class="ibutton first" alt="Books" src="{{url_for('static', filename='images/books_150x200.png')}}" />
+	            </a>
+            </div>
+            <div class="annotation">
+            	Manage books
+            </div>
+        </div>
+        
+        <div class="control">
+        	<div class="button">
+	            <a href="authors">
+	                <img class="ibutton" alt="Authors" src="{{url_for('static', filename='images/authors_150x200.png')}}" />
+	            </a>
+            </div>
+            <div class="annotation">
+            	Manage authors
+            </div>
+        </div>
+    </div>
+{% endblock %}

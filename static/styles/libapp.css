@@ -1,0 +1,206 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: arial, 'helvetica neue', helvetica, Trebuchet, sans-serif;
+	color: #363636;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 11px;
+}
+
+#dashboard {
+	display: block;
+	margin: 0 auto;
+	width: 651px;
+	padding: 40px 0 40px 0;
+}
+
+#dashboard .control .annotation {
+	padding-top: 5px;
+}
+
+#wrapper {
+	display: block;
+	margin: 0 auto;
+	width: 600px;
+	padding: 40px 0 40px 0;
+}
+
+#wrapper .breadcrumbs {
+	text-align: left;
+	padding: 5px 0 5px 0;
+	border-top: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+}
+
+#wrapper .toolbar {
+	position: relative;
+	padding: 50px 0 5px 0;
+	margin-bottom: 10px;
+	border-bottom: solid 1px #CCC;	
+}
+
+#wrapper .toolbar .buttons {
+	float: right;
+}
+
+/*
+#wrapper .toolbar .search_control {
+	float: right;
+}
+*/
+
+#wrapper .error {
+	margin-top: 50px;
+	text-align: center;
+    border-top: solid 1px #FF5050;
+    border-bottom: solid 1px #FF5050;	
+}
+
+#wrapper .search_control input[name="expression"] {
+	width: 200px;
+}
+
+
+.tuned {
+	padding-top: 6px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+}
+
+.clear {
+	clear: both;
+}
+
+#books_container {
+	clear: both;
+	text-align: left;
+}
+
+#books_container .summary {
+	float: right;
+	font-style: italic;
+	font-size: 10px;
+}
+
+.book, .author {
+	border-bottom: dotted 1px #CCC;
+	padding: 8px 0 8px 0;
+}
+
+.book .name .label, .book .authors .label, .author .name .label {
+    font-style: italic;
+    font-weight: bold;
+    float: left;
+    padding: 0 2px 0 0;	
+}
+
+.book .data, .author .data {
+	float: left;
+	padding: 8px 0 8px 0;
+}
+
+.book .controls {
+	float: right;
+	display: none;
+	padding: 6px 0 6px 0;
+}
+
+.author .controls {
+    float: right;
+    display: none;
+    padding: 1px 0 1px 0;
+}
+
+.dialogs, .forms {
+    display: none;	
+}
+
+#create_author_dialog .controls,
+#update_author_dialog .controls,
+#create_book_dialog .controls,
+#update_book_dialog .controls {
+	text-align: left;
+}
+
+#delete_author_dialog .controls,
+#delete_book_dialog .controls {
+	padding-top: 8px;
+}
+
+#create_author_dialog .controls label,
+#update_author_dialog .controls label,
+#create_book_dialog .controls label,
+#update_book_dialog .controls label {
+	display: block;
+	padding-bottom: 2px;
+	padding-top: 8px;
+}
+
+#create_author_dialog .controls input,
+#update_author_dialog .controls input,
+#create_book_dialog .controls input,
+#update_book_dialog .controls input {
+	display: block;
+	width: 100%;
+	padding-bottom: 5px;
+}
+
+#create_author_dialog .errors,
+#update_author_dialog .errors,
+#create_book_dialog .errors,
+#update_book_dialog .errors {
+	display: none;
+	background-color: #FFB2B2;
+	padding: 5px;
+	width: 276px;
+	text-align: left;
+}
+
+#create_book_dialog .controls select,
+#update_book_dialog .controls select {
+	width: 285px;
+}
+
+.book:hover .controls, .author:hover .controls {
+	display: block;
+}
+
+.book .name .value, .book .authors .value, .author .name .value {
+	white-space: nowrap;
+}
+
+#dashboard .caption {
+	border-bottom: solid 1px #CCC;
+	padding-bottom: 5px;
+	margin-bottom: 50px;
+}
+
+#dashboard img {
+	margin: 0 0 0 5px;
+	padding: 5px;
+	border: solid 1px #CCC;
+}
+
+#dashboard .control {
+	float: left;
+}
+
+#dashboard .control.first {
+	clear: left;
+	margin: 0 0 0 0;
+}
+
+.control:hover img.ibutton {
+	border: solid 1px #CCC;
+	-moz-box-shadow: 1px 1px 5px #999;
+	-webkit-box-shadow: 1px 1px 5px #999;
+	box-shadow: 1px 1px 5px #999;
+}
+
+.control:hover .annotation {
+	font-style: oblique;
+}

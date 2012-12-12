@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<div id="wrapper">
+    
+    <div class="breadcrumbs">
+        <a href="/" class="home">Home</a>
+        <span> >> </span>
+        <span>Books</span>
+    </div>
+    
+    <div class="toolbar">
+        <div class="buttons">
+            <input type="button" value="add" id="create_book"/>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="books_container">
+    {% for book in books %}
+		<div class="book">
+			<div class="data">
+				<div class="name">
+					<div class="label">Name:</div>
+					<div class="value">{{book.name}}</div>
+					<div class="clear"></div>
+				</div>
+				<div class="authors">
+					<div class="label">Authors:</div>
+					<div class="value">{{book.authors | join(", ", attribute = "name")}}</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<div class="controls">
+				<input type="button" value="edit" class="update_book" /> <input
+					type="button" value="delete" class="delete_book" />
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+    
+    <div class="forms">
+        <form id="create_book_form" action="/books/create" method="post">
+            <input type="hidden" name="name" value=""/>
+            <select multiple="multiple" name="authors">
+            </select>
+            <input type="submit" value="submit"/>
+        </form>
+        <form id="update_book_form" action="/books/update" method="post">
+        	<input type="hidden" name="old_name" value = ""/>
+            <input type="hidden" name="name" value=""/>
+            <select multiple="multiple" name="authors">
+            </select>
+            <input type="submit" value="submit"/>
+        </form>
+        <form id="delete_book_form" action="/books/delete" method="post">
+            <input type="hidden" name="name" value=""/>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+
+    <div class="dialogs">
+        <div id="create_book_dialog" title="Add new book">
+            <div class="errors"></div>
+            <div class="controls">
+                <label>Name</label>
+                <input type="text" name="name" class="tuned ui-widget-content ui-corner-all"/>
+                <label>Authors</label>
+                <select multiple="multiple" name="authors" class="tuned ui-widget-content ui-corner-all">
+                </select>            
+            </div>
+        </div>
+        <div id="update_book_dialog" title="Edit book">
+            <div class="errors"></div>
+            <div class="controls">
+               <label for="name">Name</label>
+               <input type="text" name="name" class="tuned ui-widget-content ui-corner-all"/>
+               <label>Authors</label>
+               <select multiple="multiple" name="authors" class="tuned ui-widget-content ui-corner-all">
+               </select>
+            </div>
+        </div>
+        <div id="delete_book_dialog" title="Delete book">
+            <div class="controls">
+                <div>Are you sure you want to delete</div>
+                <span class="book_name"></span>?
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{url_for('static', filename='scripts/create_book.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts/update_book.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts/delete_book.js')}}"></script>
+{% endblock %}

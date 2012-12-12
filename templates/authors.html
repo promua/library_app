@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Authors{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+	    <div class="breadcrumbs">
+	        <a href="/" class="home">Home</a>
+	        <span> >> </span>
+	        <span>Authors</span>
+	    </div>
+    
+	    <div class="toolbar">
+	        <div class="buttons">
+	            <input type="button" value="add" id="create_author"/>
+	        </div>
+	        <div class="clear"></div>
+	    </div>
+
+	    <div id="authors_container">
+		{% for author in authors %}
+		<div class="author">
+			<div class="data">
+                <div class="name">
+                    <div class="label">Name:</div>
+                    <div class="value">{{author.name}}</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <input type="button" value="edit" class="update_author"/>
+                <input type="button" value="delete" class="delete_author"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        {% endfor %}
+	    </div>
+    </div>
+    
+    <div class="forms">
+        <form id="create_author_form" action="/authors/create" method="post">
+            <input type="hidden" name="name" value=""/>
+            <input type="submit" value="submit"/>
+        </form>
+        <form id="update_author_form" action="/authors/update" method="post">
+            <input type="hidden" name="new_name" value=""/>
+            <input type="hidden" name="old_name" value=""/>
+            <input type="submit" value="submit"/>
+        </form>
+        <form id="delete_author_form" action="/authors/delete" method="post">
+            <input type="hidden" name="name" value=""/>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+
+    <div class="dialogs">
+        <div id="create_author_dialog" title="Add new author">
+            <div class="errors"></div>
+            <div class="controls">
+                <label>Name</label>
+                <input type="text" name="name" class="tuned ui-widget-content ui-corner-all"/>            
+            </div>
+        </div>
+        <div id="update_author_dialog" title="Edit author">
+            <div class="errors"></div>
+            <div class="controls">
+               <label for="name">Name</label>
+               <input type="text" name="name" class="tuned ui-widget-content ui-corner-all"/>
+            </div>
+        </div>
+        <div id="delete_author_dialog" title="Delete author">
+            <div class="controls">
+                <div>Are you sure you want to delete</div>
+                <span class="author_name"></span>?
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{url_for('static', filename='scripts/create_author.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts/update_author.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts/delete_author.js')}}"></script>
+{% endblock %}
+
