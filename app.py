@@ -1,8 +1,16 @@
-##!/usr/bin/python
+#!/usr/bin/python
 #please use tryme/bin/python app.py to run me
 
+
+#puts level up dir to sys.path to have ability to
+#use library_app module
+
+from os.path import join, realpath, normpath, dirname
+cwd = realpath(dirname(__file__))
+lup = normpath(join(cwd, ".."))
+
 import sys
-sys.path.append("..")
+sys.path.append(lup)
 
 from flask import Flask, request, redirect, url_for
 from flask.templating import render_template
